@@ -1,8 +1,8 @@
 <template>
     <div>
         <head-component></head-component>
-        <webtoon-info :nickname="nickname"></webtoon-info>
-        <episode-list :nickname="nickname"></episode-list>
+        <webtoon-info :nickname="nickname" v-if="nickname"></webtoon-info>
+        <episode-list :nickname="nickname" v-if="nickname"></episode-list>
     </div>
 </template>
 
@@ -15,11 +15,20 @@
         name: 'View',
         data : function(){
             return {
-                nickname : this.$route.params.nickname
+                nickname : ''
             }
         },
         components : {
             HeadComponent, WebtoonInfo, EpisodeList
+        },
+        created : function(){
+        },
+        activated : function(){
+//            if(this.nickname == this.$route.params.nickname){
+//                console.log('nothing')
+//            } else {
+                this.nickname = this.$route.params.nickname;
+//            }
         }
     }
 </script>

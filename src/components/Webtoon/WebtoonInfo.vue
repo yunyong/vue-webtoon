@@ -1,12 +1,12 @@
 <template>
-    <div class="webtoon_info" v-if="webtoon.id">
-        <strong class="tit_webtoon">{{ webtoon.title }}</strong>
+    <div class="webtoon_info">
+        <strong class="tit_webtoon">{{ webtoon.title }}&nbsp;</strong>
         <div class="info_webtoon">
             <div class="thumb_webtoon">
-                <img :src="webtoon.thumbnailImage2.url" alt="" class="img_webtoon">
+                <img :src="webtoon.thumbnailImage2?webtoon.thumbnailImage2.url:loadingImg" alt="" class="img_webtoon">
             </div>
             <div class="desc_webtoon">
-                <span class="txt_artist">
+                <span class="txt_artist" v-if="webtoon.id">
                     <span>
                         {{ webtoon.cartoon.artists[0].name }}
                     </span>
@@ -14,7 +14,7 @@
                         ,{{ webtoon.cartoon.artists[1].name }}
                     </span>
                 </span>
-                <div class="wrap_genre">
+                <div class="wrap_genre" v-if="webtoon.id">
                     <span class="txt_genre" v-for="genre in webtoon.cartoon.genres">
                         #{{ genre.name }}
                     </span>
@@ -34,6 +34,15 @@
         data : function(){
             return {
                 webtoon : {},
+                loadingImg : 'http://i1.daumcdn.net/img-section/cartoon/webtoon2015/ico_loading.gif'
+            }
+        },
+        watch : {
+            'nickname' : function(){
+                if(this.nickname){
+                    this.webtoon = {};
+                    this.getWebtoon();
+                }
             }
         },
         methods : {
@@ -54,7 +63,7 @@
     .webtoon_info .tit_webtoon {display:block;padding:10px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;background-color:#eee}
     .webtoon_info .info_webtoon {overflow:hidden;padding:10px}
     .webtoon_info .thumb_webtoon {float:left;width:100px;border:1px solid #ccc}
-    .webtoon_info .thumb_webtoon .img_webtoon {display:block;width:100px}
+    .webtoon_info .thumb_webtoon .img_webtoon {display:block;width:100px;height:96px}
     .webtoon_info .desc_webtoon {overflow:hidden;padding:10px}
     .webtoon_info .desc_webtoon .txt_artist {display:block}
     .webtoon_info .wrap_genre {display:block;padding-top:10px}

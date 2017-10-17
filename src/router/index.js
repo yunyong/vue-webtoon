@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import jsonp from 'jsonp'
 
-import Webtoon from '@/components/Webtoon/Webtoon'
 import League from '@/components/League/League'
+import My from '@/components/My/My'
+import Webtoon from '@/components/Webtoon/Webtoon'
 import View from '@/components/Webtoon/View'
 import Viewer from '@/components/Webtoon/Viewer'
 
@@ -24,8 +25,13 @@ export default new Router({
       },
       {
         path: '/league',
-        name: 'Hello',
+        name: 'league',
         component: League
+      },
+      {
+        path: '/my',
+        name: 'my',
+        component: My
       },
       {
           path: '/webtoon/view/:nickname',

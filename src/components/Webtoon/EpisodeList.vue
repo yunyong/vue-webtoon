@@ -46,7 +46,20 @@
                 totalItemCount : 0
             }
         },
+        watch : {
+            'nickname' : function(){
+                if(this.nickname){
+                    this.setDefault();
+                    this.getWebtoon();
+                }
+            }
+        },
         methods : {
+            setDefault : function(){
+                this.list = [];
+                this.page = 1;
+                this.totalItemCount = 0;
+            },
             getWebtoon : function(){
                 const url = `http://m.webtoon.daum.net/data/mobile/webtoon/list_episode_by_nickname?nickname=${this.nickname}&page_no=${this.page}&page_size=10&sort=desc`;
                 this.$http(url, {}, (err, data) => {

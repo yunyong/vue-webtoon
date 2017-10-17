@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <keep-alive include="Webtoon">
+        <keep-alive include="Webtoon,View">
             <router-view/>
         </keep-alive>
     </div>

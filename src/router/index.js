@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import axios from 'axios'
 import jsonp from 'jsonp'
 
-import HelloWorld from '@/components/HelloWorld'
 import Webtoon from '@/components/Webtoon/Webtoon'
 import League from '@/components/League/League'
 import View from '@/components/Webtoon/View'
+import Viewer from '@/components/Webtoon/Viewer'
 
 // Vue.prototype.$http = axios
 Vue.prototype.$http = jsonp
@@ -32,6 +31,11 @@ export default new Router({
           path: '/webtoon/view/:nickname',
           name: 'view',
           component: View
+      },
+      {
+          path: '/webtoon/viewer/:id',
+          name: 'viewer',
+          component: Viewer
       }
     ]
 })

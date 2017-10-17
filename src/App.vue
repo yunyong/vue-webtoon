@@ -34,7 +34,7 @@ export default {
 
   body,th,td,input,select,textarea,button {font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333}
 
-  .webtoon_list .img_loading {position:fixed;top:50%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;background:url(http://i1.daumcdn.net/img-section/cartoon/webtoon2015/ico_loading.gif) no-repeat}
+  .img_loading {position:fixed;top:50%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;background:url(http://i1.daumcdn.net/img-section/cartoon/webtoon2015/ico_loading.gif) no-repeat}
   .list_webtoon {border-bottom:1px solid #ccc}
   .list_webtoon li {padding:10px;border-top:1px solid #ccc}
   .list_webtoon .link_webtoon {display:block;overflow:hidden}
